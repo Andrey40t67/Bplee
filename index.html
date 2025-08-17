@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 18 - Apple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-text: #f5f5f7;
+            --color-text-secondary: #a1a1aa;
+            --color-text-tertiary: #86868b;
+            --color-bg: #000;
+            --color-bg-secondary: #1d1d1f;
+            --color-blue: #007aff;
+            --color-orange: #f56500;
+            --color-light-bg: #f5f5f7;
+            --color-light-text: #1d1d1f;
+            --color-purple: #5856d6;
+            --color-pink: #ff2d92;
+            --color-green: #32d74b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Global Navigation */
+        .globalnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(29, 29, 31, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+        }
+
+        .globalnav.scrolled {
+            background: rgba(29, 29, 31, 0.95);
+            backdrop-filter: saturate(180%) blur(30px);
+            -webkit-backdrop-filter: saturate(180%) blur(30px);
+        }
+
+        .globalnav-content {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 44px;
+        }
+
+        .globalnav-link-apple {
+            color: var(--color-text);
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: 400;
+            transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .globalnav-link-apple:hover {
+            opacity: 0.8;
+        }
+
+        .globalnav-list {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .globalnav-link {
+            color: var(--color-text);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .globalnav-link:hover {
+            opacity: 0.8;
+        }
+
+        .lang-switcher {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--color-text);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .lang-switcher:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: radial-gradient(ellipse at center, rgba(0, 122, 255, 0.08) 0%, var(--color-bg) 70%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 122, 255, 0.12) 0%, transparent 60%);
+            animation: heroAmbient 12s ease-in-out infinite;
+        }
+
+        @keyframes heroAmbient {
+            0%, 100% { 
+                opacity: 0.4; 
+                transform: scale(1); 
+            }
+            50% { 
+                opacity: 0.8; 
+                transform: scale(1.1); 
+            }
+        }
+
+        .hero-content {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 160px 22px 120px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            font-size: 19px;
+            line-height: 1.21053;
+            font-weight: 600;
+            letter-spacing: 0.012em;
+            color: var(--color-orange);
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s forwards;
+        }
+
+        .hero-headline {
+            font-size: 96px;
+            line-height: 1.04167;
+            font-weight: 600;
+            letter-spacing: -0.009em;
+            color: var(--color-text);
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.5s forwards;
+        }
+
+        .hero-subhead {
+            font-size: 28px;
+            line-height: 1.14286;
+            font-weight: 400;
+            letter-spacing: 0.004em;
+            color: var(--color-text-secondary);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) 0.7s forwards;
+        }
+
+        .hero-tagline {
+            font-size: 21px;
+            line-height: 1.381;
+            font-weight: 400;
+            letter-spacing: 0.011em;
+            color: var(--color-text-tertiary);
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s forwards;
+        }
+
+        .hero-cta {
+            margin-bottom: 140px;
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) 1.1s forwards;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--color-blue);
+            color: white;
+            font-size: 17px;
+            line-height: 1.23536;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 980px;
+            margin: 0 12px;
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .cta-primary:hover {
+            background: #0056cc;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
+        }
+
+        .cta-secondary {
+            color: var(--color-blue);
+            font-size: 17px;
+            line-height: 1.23536;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .cta-secondary:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        /* iPhone Visual */
+        .hero-visual {
+            position: relative;
+            height: 1000px;
+            margin-bottom: 160px;
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) 1.3s forwards;
+        }
+
+        .iphone-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            perspective: 1500px;
+        }
+
+        .iphone {
+            width: 340px;
+            height: 700px;
+            background: linear-gradient(145deg, #1d1d1f 0%, #2d2d30 25%, #48484a 50%, #2d2d30 75%, #1d1d1f 100%);
+            border-radius: 65px;
+            position: relative;
+            border: 1.5px solid rgba(134, 134, 139, 0.3);
+            transform-style: preserve-3d;
+            animation: phoneFloat 30s ease-in-out infinite;
+            filter: drop-shadow(0 50px 150px rgba(0, 0, 0, 0.6)) 
+                    drop-shadow(0 0 100px rgba(0, 122, 255, 0.2));
+        }
+
+        @keyframes phoneFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+            }
+            12.5% { 
+                transform: translateY(-40px) rotateY(6deg) rotateX(4deg) rotateZ(-3deg);
+            }
+            25% { 
+                transform: translateY(-25px) rotateY(-4deg) rotateX(-3deg) rotateZ(2deg);
+            }
+            37.5% { 
+                transform: translateY(-45px) rotateY(2deg) rotateX(2deg) rotateZ(-1deg);
+            }
+            50% { 
+                transform: translateY(-30px) rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+            }
+            62.5% { 
+                transform: translateY(-35px) rotateY(-5deg) rotateX(-2deg) rotateZ(2deg);
+            }
+            75% { 
+                transform: translateY(-20px) rotateY(3deg) rotateX(3deg) rotateZ(-2deg);
+            }
+            87.5% { 
+                transform: translateY(-40px) rotateY(-2deg) rotateX(-1deg) rotateZ(1deg);
+            }
+        }
+
+        .iphone::before {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                transparent 25%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 75%, 
+                rgba(255, 255, 255, 0.05) 100%);
+            border-radius: 63px;
+            pointer-events: none;
+        }
+
+        .dynamic-island {
+            position: absolute;
+            top: 34px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 126px;
+            height: 37px;
+            background: #000;
+            border-radius: 19px;
+            border: 1px solid #333;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.8);
+            animation: islandPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes islandPulse {
+            0%, 100% { 
+                transform: translateX(-50%) scale(1); 
+                box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.8);
+            }
+            50% { 
+                transform: translateX(-50%) scale(1.05); 
+                box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 122, 255, 0.3);
+            }
+        }
+
+        .screen {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+            background: radial-gradient(ellipse at center, #0a0a0a 0%, #000 100%);
+            border-radius: 45px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .screen-content {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 122, 255, 0.15) 0%, transparent 70%);
+            animation: screenGlow 10s ease-in-out infinite;
+        }
+
+        @keyframes screenGlow {
+            0%, 100% { 
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            33% {
+                opacity: 0.9;
+                transform: scale(1.03);
+            }
+            66% {
+                opacity: 0.7;
+                transform: scale(1.01);
+            }
+        }
+
+        /* Section Styling */
+        .section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-light {
+            background: linear-gradient(180deg, var(--color-light-bg) 0%, #e8e8ed 100%);
+            color: var(--color-light-text);
+        }
+
+        .section-dark {
+            background: linear-gradient(180deg, var(--color-bg) 0%, #1a1a1a 100%);
+            color: var(--color-text);
+        }
+
+        .section-gradient {
+            background: linear-gradient(135deg, 
+                var(--color-purple) 0%, 
+                var(--color-blue) 25%, 
+                var(--color-green) 50%, 
+                var(--color-pink) 75%, 
+                var(--color-orange) 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            color: white;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .section-content {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 220px 22px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .section-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-eyebrow {
+            font-size: 21px;
+            line-height: 1.19048;
+            font-weight: 600;
+            letter-spacing: 0.011em;
+            color: var(--color-orange);
+            margin-bottom: 20px;
+        }
+
+        .section-headline {
+            font-size: 80px;
+            line-height: 1.05;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: 36px;
+        }
+
+        .section-subhead {
+            font-size: 28px;
+            line-height: 1.14286;
+            font-weight: 400;
+            letter-spacing: 0.004em;
+            margin-bottom: 52px;
+            opacity: 0.85;
+        }
+
+        .section-copy {
+            font-size: 21px;
+            line-height: 1.381;
+            font-weight: 400;
+            letter-spacing: 0.011em;
+            max-width: 800px;
+            margin: 0 auto 120px;
+            opacity: 0.9;
+        }
+
+        /* Weight Display */
+        .weight-showcase {
+            position: relative;
+            height: 700px;
+            margin: 140px 0;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.03);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .section-dark .weight-showcase {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .weight-display {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .weight-number {
+            font-size: 200px;
+            font-weight: 700;
+            line-height: 0.9;
+            color: var(--color-blue);
+            margin-bottom: 40px;
+            animation: weightFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes weightFloat {
+            0%, 100% { 
+                transform: scale(1) translateY(0px); 
+                color: var(--color-blue);
+            }
+            33% { 
+                transform: scale(1.08) translateY(-15px); 
+                color: var(--color-purple);
+            }
+            66% { 
+                transform: scale(1.05) translateY(-8px); 
+                color: var(--color-pink);
+            }
+        }
+
+        .weight-label {
+            font-size: 36px;
+            font-weight: 500;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .weight-subtitle {
+            font-size: 19px;
+            opacity: 0.6;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* AI Section */
+        .ai-showcase {
+            position: relative;
+            height: 600px;
+            margin: 140px 0;
+            border-radius: 30px;
+            background: linear-gradient(135deg, rgba(255, 45, 146, 0.1) 0%, rgba(88, 86, 214, 0.1) 100%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+        }
+
+        .ai-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .ai-icon {
+            font-size: 150px;
+            margin-bottom: 30px;
+            animation: aiRotate 15s linear infinite;
+        }
+
+        @keyframes aiRotate {
+            from { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            to { transform: rotate(360deg) scale(1); }
+        }
+
+        .ai-title {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, var(--color-pink) 0%, var(--color-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ai-subtitle {
+            font-size: 21px;
+            opacity: 0.7;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 60px;
+            margin: 160px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            padding: 70px 50px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            transition: all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .section-light .feature-card {
+            background: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .section-light .feature-card:hover {
+            background: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-title {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.125;
+            letter-spacing: -0.003em;
+            margin-bottom: 24px;
+        }
+
+        .feature-description {
+            font-size: 19px;
+            line-height: 1.21053;
+            letter-spacing: 0.012em;
+            opacity: 0.85;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+            margin: 160px 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            padding: 70px 50px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .section-light .stat-item {
+            background: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .section-light .stat-item:hover {
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 76px;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-purple) 50%, var(--color-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: statGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes statGlow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .stat-label {
+            font-size: 21px;
+            line-height: 1.19048;
+            font-weight: 600;
+            letter-spacing: 0.011em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .stat-description {
+            font-size: 17px;
+            line-height: 1.47059;
+            letter-spacing: -0.022em;
+            opacity: 0.7;
+        }
+
+        /* Performance Section */
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 100px;
+            margin: 160px 0;
+        }
+
+        .performance-item {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .performance-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .performance-number {
+            font-size: 140px;
+            font-weight: 700;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: performancePulse 4s ease-in-out infinite;
+        }
+
+        @keyframes performancePulse {
+            0%, 100% { 
+                transform: scale(1); 
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.08); 
+                filter: brightness(1.2);
+            }
+        }
+
+        .performance-label {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.14286;
+            letter-spacing: 0.004em;
+            margin-bottom: 20px;
+        }
+
+        .performance-description {
+            font-size: 19px;
+            line-height: 1.21053;
+            letter-spacing: 0.012em;
+            opacity: 0.8;
+        }
+
+        /* Technology Showcase */
+        .tech-showcase {
+            position: relative;
+            height: 800px;
+            margin: 160px 0;
+            border-radius: 30px;
+            background: linear-gradient(135deg, 
+                rgba(0, 122, 255, 0.1) 0%, 
+                rgba(88, 86, 214, 0.1) 30%,
+                rgba(175, 82, 222, 0.1) 60%,
+                rgba(255, 45, 146, 0.1) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+        }
+
+        .tech-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .tech-visual {
+            font-size: 220px;
+            margin-bottom: 50px;
+            animation: techFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes techFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1); 
+            }
+            25% { 
+                transform: translateY(-30px) rotate(90deg) scale(1.1); 
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg) scale(1); 
+            }
+            75% { 
+                transform: translateY(-35px) rotate(270deg) scale(1.05); 
+            }
+        }
+
+        .tech-title {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.07143;
+            letter-spacing: -0.005em;
+            margin-bottom: 28px;
+            background: linear-gradient(90deg, white 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tech-subtitle {
+            font-size: 24px;
+            line-height: 1.16667;
+            font-weight: 400;
+            letter-spacing: 0.009em;
+            opacity: 0.8;
+            max-width: 700px;
+        }
+
+        /* Download Section */
+        .section-download {
+            background: linear-gradient(135deg, #1d1d1f 0%, #2d2d30 50%, #1d1d1f 100%);
+            color: var(--color-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-download::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 122, 255, 0.2) 0%, transparent 60%);
+            animation: downloadGlow 18s ease-in-out infinite;
+        }
+
+        @keyframes downloadGlow {
+            0%, 100% { 
+                opacity: 0.3; 
+                transform: scale(1) rotate(0deg); 
+            }
+            33% { 
+                opacity: 0.7; 
+                transform: scale(1.2) rotate(120deg); 
+            }
+            66% { 
+                opacity: 0.5; 
+                transform: scale(1.1) rotate(240deg); 
+            }
+        }
+
+        .download-headline {
+            font-size: 80px;
+            line-height: 1.05;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: 36px;
+        }
+
+        .download-copy {
+            font-size: 24px;
+            line-height: 1.16667;
+            font-weight: 400;
+            letter-spacing: 0.009em;
+            margin-bottom: 70px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-blue);
+            color: white;
+            font-size: 19px;
+            line-height: 1.21053;
+            font-weight: 500;
+            letter-spacing: 0.012em;
+            text-decoration: none;
+            padding: 22px 44px;
+            border-radius: 980px;
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 1s;
+        }
+
+        .download-button:hover {
+            background: #0056cc;
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 122, 255, 0.4);
+        }
+
+        .download-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--color-light-bg) 0%, #e8e8ed 100%);
+            color: var(--color-text-tertiary);
+            padding: 140px 0 100px;
+        }
+
+        .footer-content {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 22px;
+            text-align: center;
+        }
+
+        .footer-copy {
+            font-size: 14px;
+            line-height: 1.42857;
+            font-weight: 400;
+            letter-spacing: -0.016em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1068px) {
+            .hero-headline, .section-headline, .download-headline {
+                font-size: 64px;
+            }
+            
+            .weight-number {
+                font-size: 160px;
+            }
+            
+            .performance-number {
+                font-size: 100px;
+            }
+            
+            .tech-title {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 834px) {
+            .globalnav-list {
+                display: none;
+            }
+            
+            .hero-headline, .section-headline, .download-headline {
+                font-size: 48px;
+            }
+            
+            .hero-subhead, .section-subhead {
+                font-size: 21px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .performance-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 734px) {
+            .hero-content, .section-content {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+            
+            .section-content {
+                padding-top: 160px;
+                padding-bottom: 160px;
+            }
+            
+            .hero-headline, .section-headline, .download-headline {
+                font-size: 36px;
+            }
+            
+            .hero-subhead, .section-subhead {
+                font-size: 19px;
+            }
+            
+            .hero-visual {
+                height: 700px;
+            }
+            
+            .iphone {
+                width: 280px;
+                height: 580px;
+            }
+            
+            .weight-number {
+                font-size: 120px;
+            }
+            
+            .performance-number {
+                font-size: 80px;
+            }
+            
+            .tech-visual {
+                font-size: 150px;
+            }
+            
+            .tech-title {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .globalnav-content, .hero-content, .section-content, .footer-content {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            
+            .hero-headline, .section-headline, .download-headline {
+                font-size: 28px;
+            }
+            
+            .iphone {
+                width: 240px;
+                height: 500px;
+            }
+            
+            .weight-number {
+                font-size: 100px;
+            }
+            
+            .stat-number {
+                font-size: 60px;
+            }
+            
+            .feature-card, .stat-item {
+                padding: 50px 30px;
+            }
+        }
+
+        /* Accessibility & Performance */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media (prefers-contrast: high) {
+            .globalnav {
+                border-bottom-color: white;
+            }
+            
+            .iphone {
+                border-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Global Navigation -->
+    <nav class="globalnav" id="globalnav">
+        <div class="globalnav-content">
+            <a href="#" class="globalnav-link-apple" aria-label="Apple">Apple</a>
+            <ul class="globalnav-list">
+                <li><a href="#hero" class="globalnav-link" data-en="iPhone 18" data-ru="iPhone 18">iPhone 18</a></li>
+                <li><a href="#weight" class="globalnav-link" data-en="Weight" data-ru="Вес">Weight</a></li>
+                <li><a href="#ai" class="globalnav-link" data-en="AI" data-ru="ИИ">AI</a></li>
+                <li><a href="#features" class="globalnav-link" data-en="Features" data-ru="Функции">Features</a></li>
+                <li><a href="#performance" class="globalnav-link" data-en="Performance" data-ru="Производительность">Performance</a></li>
+                <li><a href="#tech" class="globalnav-link" data-en="Technology" data-ru="Технологии">Technology</a></li>
+                <li><a href="#download" class="globalnav-link" data-en="Download" data-ru="Скачать">Download</a></li>
+            </ul>
+            <button class="lang-switcher" onclick="toggleLanguage()">EN</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow" data-en="Introducing the revolutionary" data-ru="Представляем революционный">Introducing the revolutionary</p>
+            <h1 class="hero-headline">iPhone 18</h1>
+            <p class="hero-subhead" data-en="More inconvenient than ever imagined." data-ru="Неудобнее чем можно было представить.">More inconvenient than ever imagined.</p>
+            <p class="hero-tagline" data-en="Now with groundbreaking AI technology developed by a high school student." data-ru="Теперь с прорывной ИИ-технологией, разработанной школьником.">Now with groundbreaking AI technology developed by a high school student.</p>
+            <div class="hero-cta">
+                <a href="#weight" class="cta-primary" data-en="Discover inconvenience" data-ru="Откройте неудобство">Discover inconvenience</a>
+                <a href="#download" class="cta-secondary" data-en="Download presentation" data-ru="Скачать презентацию">Download presentation</a>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="iphone-container">
+                    <div class="iphone">
+                        <div class="dynamic-island"></div>
+                        <div class="screen">
+                            <div class="screen-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weight Section -->
+    <section class="section section-light" id="weight">
+        <div class="section-content">
+            <p class="section-eyebrow" data-en="Revolutionary Weight Engineering" data-ru="Революционная инженерия веса">Revolutionary Weight Engineering</p>
+            <h2 class="section-headline" data-en="47 kilograms heavier." data-ru="На 47 килограммов тяжелее.">47 kilograms heavier.</h2>
+            <p class="section-subhead" data-en="Because you specifically requested maximum inconvenience." data-ru="Потому что вы специально просили максимальное неудобство.">Because you specifically requested maximum inconvenience.</p>
+            <div class="section-copy">
+                <p data-en="You told us iPhone 17 was inconvenient. We didn't just listen — we revolutionized inconvenience. iPhone 18 features our breakthrough Tungsten Core™ technology, meticulously engineered to add precisely 47 kilograms of premium aerospace-grade weight. This isn't just a phone; it's a commitment to your daily strength training regimen." data-ru="Вы сказали нам, что iPhone 17 неудобен. Мы не просто услышали — мы революционизировали неудобство. iPhone 18 оснащен нашей прорывной технологией Tungsten Core™, тщательно спроектированной для добавления ровно 47 килограммов премиального авиационного веса. Это не просто телефон; это ваша ежедневная программа силовых тренировок.">You told us iPhone 17 was inconvenient. We didn't just listen — we revolutionized inconvenience. iPhone 18 features our breakthrough Tungsten Core™ technology, meticulously engineered to add precisely 47 kilograms of premium aerospace-grade weight. This isn't just a phone; it's a commitment to your daily strength training regimen.</p>
+            </div>
+            
+            <div class="weight-showcase">
+                <div class="weight-display">
+                    <div class="weight-number">47kg</div>
+                    <div class="weight-label" data-en="Premium Added Weight" data-ru="Премиальный добавленный вес">Premium Added Weight</div>
+                    <div class="weight-subtitle" data-en="Scientifically calibrated for maximum inconvenience and optimal bicep development" data-ru="Научно откалиброван для максимального неудобства и оптимального развития бицепсов">Scientifically calibrated for maximum inconvenience and optimal bicep development</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Section -->
+    <section class="section section-dark" id="ai">
+        <div class="section-content">
+            <p class="section-eyebrow" data-en="Advanced Artificial Intelligence" data-ru="Продвинутый искусственный интеллект">Advanced Artificial Intelligence</p>
+            <h2 class="section-headline" data-en="Revolutionary AI." data-ru="Революционный ИИ.">Revolutionary AI.</h2>
+            <p class="section-subhead" data-en="Powered by cutting-edge machine learning." data-ru="Работает на передовом машинном обучении.">Powered by cutting-edge machine learning.</p>
+            <div class="section-copy">
+                <p data-en="Introducing our most advanced AI system yet, developed exclusively by a talented high school student using Python and a $50 laptop. This groundbreaking neural network has been trained on over 12 Stack Overflow answers and can predict user frustration with 23% accuracy. The AI continuously learns from your inconveniences to make every interaction progressively more annoying." data-ru="Представляем нашу самую продвинутую ИИ-систему, разработанную исключительно талантливым школьником на Python и ноутбуке за $50. Эта прорывная нейронная сеть была обучена на более чем 12 ответах Stack Overflow и может предсказывать пользовательское раздражение с точностью 23%. ИИ постоянно учится на ваших неудобствах, делая каждое взаимодействие прогрессивно более раздражающим.">Introducing our most advanced AI system yet, developed exclusively by a talented high school student using Python and a $50 laptop. This groundbreaking neural network has been trained on over 12 Stack Overflow answers and can predict user frustration with 23% accuracy. The AI continuously learns from your inconveniences to make every interaction progressively more annoying.</p>
+            </div>
+            
+            <div class="ai-showcase">
+                <div class="ai-content">
+                    <div class="ai-icon">🤖</div>
+                    <div class="ai-title" data-en="Student AI™" data-ru="Student AI™">Student AI™</div>
+                    <div class="ai-subtitle" data-en="Developed during lunch breaks with the power of teenage determination and energy drinks" data-ru="Разработан во время обеденных перерывов силой подросткового упорства и энергетических напитков">Developed during lunch breaks with the power of teenage determination and energy drinks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-gradient" id="features">
+        <div class="section-content">
+            <p class="section-eyebrow" data-en="Advanced Inconvenience Features" data-ru="Продвинутые функции неудобства">Advanced Inconvenience Features</p>
+            <h2 class="section-headline" data-en="Beyond frustrating." data-ru="За гранью раздражения.">Beyond frustrating.</h2>
+            <p class="section-subhead" data-en="Every detail engineered to maximize user dissatisfaction." data-ru="Каждая деталь спроектирована для максимального недовольства пользователей.">Every detail engineered to maximize user dissatisfaction.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title" data-en="Tungsten Core™ Technology" data-ru="Технология Tungsten Core™">Tungsten Core™ Technology</h3>
+                    <p class="feature-description" data-en="Our patented tungsten core adds precisely 47 kilograms of premium weight, ensuring you'll never forget you're carrying the future of mobile technology. Each step becomes a workout." data-ru="Наше патентованное вольфрамовое ядро добавляет ровно 47 килограммов премиального веса, гарантируя, что вы никогда не забудете, что несете будущее мобильных технологий. Каждый шаг становится тренировкой.">Our patented tungsten core adds precisely 47 kilograms of premium weight, ensuring you'll never forget you're carrying the future of mobile technology. Each step becomes a workout.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title" data-en="Precision Inconvenience Engine" data-ru="Двигатель точных неудобств">Precision Inconvenience Engine</h3>
+                    <p class="feature-description" data-en="Advanced algorithms powered by our Student AI™ analyze your daily patterns to deliver optimally timed inconveniences. The system learns from every frustrated sigh to perfect its annoyance delivery." data-ru="Продвинутые алгоритмы на базе нашего Student AI™ анализируют ваши ежедневные паттерны для доставки оптимально рассчитанных неудобств. Система учится на каждом раздраженном вздохе для совершенствования доставки раздражения.">Advanced algorithms powered by our Student AI™ analyze your daily patterns to deliver optimally timed inconveniences. The system learns from every frustrated sigh to perfect its annoyance delivery.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title" data-en="Adaptive Battery Drain" data-ru="Адаптивный разряд батареи">Adaptive Battery Drain</h3>
+                    <p class="feature-description" data-en="Intelligently drains battery at the most inconvenient moments using machine learning trained on thousands of important phone calls. Now you'll always run out of power right when you need it most." data-ru="Интеллектуально разряжает батарею в самые неподходящие моменты, используя машинное обучение, обученное на тысячах важных телефонных звонков. Теперь энергия всегда будет заканчиваться именно когда она нужна больше всего.">Intelligently drains battery at the most inconvenient moments using machine learning trained on thousands of important phone calls. Now you'll always run out of power right when you need it most.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title" data-en="Predictive Frustration Interface" data-ru="Интерфейс предсказательного раздражения">Predictive Frustration Interface</h3>
+                    <p class="feature-description" data-en="The interface anticipates what you want to do and makes it systematically harder to achieve. Buttons move, menus hide, and apps crash with scientific precision to maximize your daily frustration quotient." data-ru="Интерфейс предвидит, что вы хотите сделать, и систематически усложняет достижение цели. Кнопки движутся, меню прячутся, а приложения вылетают с научной точностью для максимизации вашей ежедневной квоты раздражения.">The interface anticipates what you want to do and makes it systematically harder to achieve. Buttons move, menus hide, and apps crash with scientific precision to maximize your daily frustration quotient.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section class="section section-light" id="performance">
+        <div class="section-content">
+            <p class="section-eyebrow" data-en="Breakthrough Performance Metrics" data-ru="Прорывные показатели производительности">Breakthrough Performance Metrics</p>
+            <h2 class="section-headline" data-en="Impossibly inconvenient." data-ru="Невозможно неудобный.">Impossibly inconvenient.</h2>
+            <p class="section-subhead" data-en="Setting new standards in user dissatisfaction." data-ru="Устанавливая новые стандарты пользовательского недовольства.">Setting new standards in user dissatisfaction.</p>
+            
+            <div class="performance-grid">
+                <div class="performance-item">
+                    <div class="performance-number">23%</div>
+                    <div class="performance-label" data-en="AI Accuracy" data-ru="Точность ИИ">AI Accuracy</div>
+                    <div class="performance-description" data-en="Our Student AI™ predicts your frustration with unprecedented precision, thanks to advanced Python scripts and teenage intuition." data-ru="Наш Student AI™ предсказывает ваше раздражение с беспрецедентной точностью благодаря продвинутым Python-скриптам и подростковой интуиции.">Our Student AI™ predicts your frustration with unprecedented precision, thanks to advanced Python scripts and teenage intuition.</div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-number">2hrs</div>
+                    <div class="performance-label" data-en="Battery Life" data-ru="Время работы батареи">Battery Life</div>
+                    <div class="performance-description" data-en="Optimized power consumption ensures maximum inconvenience by dying precisely when you need your phone most." data-ru="Оптимизированное энергопотребление обеспечивает максимальное неудобство, разряжаясь именно когда телефон нужен больше всего.">Optimized power consumption ensures maximum inconvenience by dying precisely when you need your phone most.</div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">47.3kg</span>
+                    <p class="stat-label" data-en="Total Weight" data-ru="Общий вес">Total Weight</p>
+                    <p class="stat-description" data-en="Including premium tungsten core, lead accents, and gravitational enhancement modules" data-ru="Включая премиальное вольфрамовое ядро, свинцовые акценты и модули гравитационного усиления">Including premium tungsten core, lead accents, and gravitational enhancement modules</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">-97%</span>
+                    <p class="stat-label" data-en="User Satisfaction" data-ru="Удовлетворенность пользователей">User Satisfaction</p>
+                    <p class="stat-description" data-en="Our lowest satisfaction rating yet, achieved through meticulous inconvenience engineering" data-ru="Наш самый низкий рейтинг удовлетворенности, достигнутый благодаря тщательной инженерии неудобств">Our lowest satisfaction rating yet, achieved through meticulous inconvenience engineering</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">847%</span>
+                    <p class="stat-label" data-en="More Inconvenient" data-ru="Более неудобно">More Inconvenient</p>
+                    <p class="stat-description" data-en="Than any smartphone ever created, verified by independent frustration laboratories" data-ru="Чем любой смартфон когда-либо созданный, подтверждено независимыми лабораториями раздражения">Than any smartphone ever created, verified by independent frustration laboratories</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <p class="stat-label" data-en="AI Training Sources" data-ru="Источники обучения ИИ">AI Training Sources</p>
+                    <p class="stat-description" data-en="Stack Overflow answers used to train our revolutionary Student AI™ system" data-ru="Ответов Stack Overflow использовано для обучения нашей революционной системы Student AI™">Stack Overflow answers used to train our revolutionary Student AI™ system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="section section-dark" id="tech">
+        <div class="section-content">
+            <p class="section-eyebrow" data-en="Cutting-Edge Technology" data-ru="Передовые технологии">Cutting-Edge Technology</p>
+            <h2 class="section-headline" data-en="Engineered for frustration." data-ru="Спроектирован для раздражения.">Engineered for frustration.</h2>
+            <p class="section-subhead" data-en="Where innovation meets inconvenience." data-ru="Где инновации встречают неудобство.">Where innovation meets inconvenience.</p>
+            
+            <div class="tech-showcase">
+                <div class="tech-content">
+                    <div class="tech-visual">⚙️</div>
+                    <div class="tech-title" data-en="Precision Engineering" data-ru="Точная инженерия">Precision Engineering</div>
+                    <div class="tech-subtitle" data-en="Every component carefully designed to maximize inconvenience while maintaining our commitment to premium materials and revolutionary weight distribution technology developed in partnership with teenage Python enthusiasts." data-ru="Каждый компонент тщательно разработан для максимизации неудобства, сохраняя при этом нашу приверженность премиальным материалам и революционной технологии распределения веса, разработанной в партнерстве с подростками-энтузиастами Python.">Every component carefully designed to maximize inconvenience while maintaining our commitment to premium materials and revolutionary weight distribution technology developed in partnership with teenage Python enthusiasts.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="section section-download" id="download">
+        <div class="section-content">
+            <h2 class="download-headline" data-en="Get the complete story" data-ru="Получите полную историю">Get the complete story</h2>
+            <p class="download-copy" data-en="Download our comprehensive presentation to explore every revolutionary inconvenience, advanced weight enhancement technology, breakthrough Student AI™ features, and the inspiring story of how a high school student revolutionized frustration prediction using Python and determination." data-ru="Скачайте нашу подробную презентацию, чтобы изучить каждое революционное неудобство, передовую технологию увеличения веса, прорывные функции Student AI™ и вдохновляющую историю о том, как школьник революционизировал предсказание раздражения, используя Python и упорство.">Download our comprehensive presentation to explore every revolutionary inconvenience, advanced weight enhancement technology, breakthrough Student AI™ features, and the inspiring story of how a high school student revolutionized frustration prediction using Python and determination.</p>
+            <a href="Apple.pdf" class="download-button" download data-en="Download Full Presentation" data-ru="Скачать полную презентацию">Download Full Presentation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-copy" data-en="iPhone 18. More inconvenient than ever imagined. Student AI™ and Tungsten Core™ are trademarks of Apple Inc. Python skills not included. Copyright © 2025 Apple Inc. All rights reserved." data-ru="iPhone 18. Неудобнее чем можно было представить. Student AI™ и Tungsten Core™ являются товарными знаками Apple Inc. Навыки Python не включены. Copyright © 2025 Apple Inc. Все права защищены.">iPhone 18. More inconvenient than ever imagined. Student AI™ and Tungsten Core™ are trademarks of Apple Inc. Python skills not included. Copyright © 2025 Apple Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentLanguage = 'en';
+
+        function toggleLanguage() {
+            const elements = document.querySelectorAll('[data-en][data-ru]');
+            const langButton = document.querySelector('.lang-switcher');
+            
+            currentLanguage = currentLanguage === 'en' ? 'ru' : 'en';
+            langButton.textContent = currentLanguage.toUpperCase();
+            
+            elements.forEach(element => {
+                const text = element.getAttribute(`data-${currentLanguage}`);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+            
+            document.documentElement.lang = currentLanguage;
+        }
+
+        // Smooth scrolling navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = 44;
+                    const targetPosition = target.offsetTop - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navigation scroll effects
+        let ticking = false;
+        
+        function updateNavigation() {
+            const nav = document.querySelector('.globalnav');
+            const scrolled = window.pageYOffset;
+            
+            if (scrolled > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateNavigation);
+                ticking = true;
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate cards with stagger
+                    const cards = entry.target.querySelectorAll('.feature-card, .stat-item, .performance-item');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 150);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section-content').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Performance optimizations
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateNavigation, 250);
+        });
+
+        // Preload resources
+        window.addEventListener('load', () => {
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.href = 'Apple.pdf';
+            document.head.appendChild(link);
+            
+            document.body.classList.add('loaded');
+        });
+
+        // Enhanced accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.activeElement.blur();
+            }
+            
+            if ((e.key === ' ' || e.key === 'Enter') && e.target.classList.contains('lang-switcher')) {
+                e.preventDefault();
+                toggleLanguage();
+            }
+        });
+
+        // Respect motion preferences
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (prefersReducedMotion.matches) {
+            document.documentElement.style.scrollBehavior = 'auto';
+        }
+
+        // Touch device optimizations
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+        }
+    </script>
+</body>
+</html>
